@@ -1,0 +1,158 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>{% block title %} Sistema de Vendas {% endblock %}</title>
+
+    {% block css %}
+    
+    {% load staticfiles %}
+    <!-- Bootstrap Core CSS -->
+    <link href="{% static 'app/content/bootstrap.min.css' %}" rel="stylesheet">
+
+     <link href="{% static 'app/content/bootstrap-submenu.min.css' %}" rel="stylesheet">
+
+     <!--CSS PERSONALIZADO-->
+    <link href="{% static 'app/content/header.css' %}" rel="stylesheet">
+    <link href="{% static 'app/content/footer.css' %}" rel="stylesheet">
+    
+    {% endblock %}
+
+    {% block scripts %}
+    
+    {% load staticfiles %} 
+    <!-- jQuery -->
+    <script src="{% static 'app/scripts/jquery.min.js' %}"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="{% static 'app/scripts/bootstrap.min.js' %}"></script>
+
+    <script src="{% static 'app/scripts/bootstrap-submenu.min.js' %}"></script>
+
+    {% endblock %}
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+
+    <script>
+        // FUNÇÃO PARA O MENU DROPDOWN PRINCIPAL FUNCIONAR CORRETAMENTE
+        $(document).ready(function() {
+          
+        $('[data-submenu]').submenupicker();
+
+
+        });
+     
+    </script>
+
+</head>
+<body>
+
+
+    <div class="container-fluid">
+        <div class="row" id="main_menu">
+
+            <div class="col-md-6">
+
+                <ul class="nav nav-pills">
+
+                    <li role="presentation" class="dropdown">
+                        <a data-toggle="dropdown" href="#" data-submenu>
+                            Cadastros <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li class="dropdown-submenu">
+                                <a> Clientes </a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="{% url 'clientes_manutencao'  %}">Manutenção</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown-submenu">
+                                <a>Representações</a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="{% url 'repres_manutencao' %} ">Manutenção</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown-submenu">
+                                <a> Produtos </a>
+                                <ul class="dropdown-menu">
+                                    <li> <a href="{% url 'produtos_manutencao' %}"> Manutenção </a> </li>
+                                </ul>
+                            </li>
+                            <li><a> Fornecedores </a></li>
+                        </ul>
+                    </li>
+
+                    <li role="presentation" class="dropdown">
+                        <a data-toggle="dropdown" href="#" data-submenu>
+                            Pedidos <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li> <a href="{% url 'inserir_pedidos' %}"> Lançar pedidos  </a> </li>
+                            <li> <a href="{% url 'pedidos_manutencao' %}"> Consultar pedidos </a></li>
+                            <li> <a href="{% url 'prazos_manutencao' %}">Controle de prazos</a></li>
+                        </ul>
+
+                    </li>
+
+                </ul>
+
+
+
+            </div> <!--END OF MENU-->
+
+
+        </div>
+    </div> <!--END OF ROW-->
+    <!--END OF HEADER-->
+    <!-- Page Content -->
+
+
+    <div class="container-fluid">
+        <div class="row">
+            <div id="body_content" class="col-md-10 col-md-offset-1">
+
+
+                <h1 class="page-header">{% block titulo_page %} Page Title {% endblock %}</h1>
+
+                <!-- ... Your content goes here ... -->
+                {% block content %}
+
+
+
+                {% endblock %}
+
+            </div>
+        </div> <!--END OF CONTENT-->
+
+    </div>
+
+
+    <div class="container-fluid">
+        <div class="row">
+            <div id="body_footer" class="col-md-12">
+                <footer>
+
+                    
+
+                </footer>
+            </div>
+
+        </div>
+
+    </div> <!--END OF BODY-->
+
+
+</body>
+</html>

@@ -1,0 +1,182 @@
+﻿{% extends '../../base.html' %}
+
+{% block css %} 
+{{ block.super }}
+{% endblock %}
+
+{% block scripts %}
+{{ block.super }}
+{% load staticfiles %}
+<script src="{% static 'app/scripts/functions/getCidadesLista.js' %}"></script>
+<script src="{% static 'app/scripts/functions/getEstadosLista.js' %}"></script>
+<script src="{% static 'app/scripts/functions/representacoes/Detalhes.js' %}"></script>
+{% endblock %}
+
+
+
+{% block titulo_page %} Consulta de representações {% endblock %}
+
+{% block content %}
+    
+
+
+ <form id="form_consultar_repres" class="form-horizontal" method="post" action="{% url 'repres_manutencao_detalhes' repres.id %}">
+    {% csrf_token %}
+    <div class="row">
+        <div class="col-md-3 ">
+            <div class="form-group">
+                <label>CNPJ</label> <input class="form-control span1" type="text" required name="cnpj" value="{{repres.cnpj}}" />
+            </div>
+        </div>
+
+        <div class="col-md-8 col-md-offset-1">
+            <div class="form-group">
+                <label>Nome Fantasia</label>  <input class="form-control" required type="text" name="nome_fantasia" value="{{repres.nome_fantasia}}" />
+            </div>
+        </div>
+    </div> <!--  TERMINA UMA LINHA DO FORM  -->
+
+
+    <div class="row">
+
+        <div class="col-md-6">
+            <div class="form-group">
+                <label>Razão Social</label>  <input class="form-control" type="text" required name="razao_social" value="{{repres.razao_social}}" />
+            </div>
+        </div>
+
+        <div class="col-md-5 col-md-offset-1">
+            <div class="form-group">
+                <label>Inscrição Estadual</label> <input class="form-control span1" type="text" name="inscri_estadual" value="{{repres.inscri_estadual}}" />
+            </div>
+        </div>
+    </div><!--  TERMINA UMA LINHA DO FORM  -->
+
+    <div class="row">
+        <div class="col-md-10">
+            <div class="form-group">
+                <label>Rua</label>  <input class="form-control" type="text" name="rua" value="{{repres.endereco.rua}}" />
+            </div>
+        </div> <!--  TERMINA UMA LINHA DO FORM  -->
+    </div>
+
+
+    <div class="row">
+        <div class="col-md-3 ">
+            <div class="form-group">
+                <label>Número</label> <input class="form-control span1" type="text" name="numero" value="{{repres.endereco.numero}}" />
+            </div>
+        </div>
+
+        <div class="col-md-3 col-md-offset-1">
+            <div class="form-group">
+                <label>Referência</label>  <input class="form-control" type="text" name="referencia" value="{{repres.endereco.referencia}}" />
+            </div>
+        </div>
+
+        <div class="col-md-3 col-md-offset-1">
+            <div class="form-group">
+                <label>CEP</label>  <input class="form-control" type="text" name="cep" value="{{ repres.endereco.cep|default_if_none:"" }}" />
+            </div>
+        </div>
+    </div> <!--  TERMINA UMA LINHA DO FORM  -->
+
+
+    <div class="row">
+        <div class="col-md-3 ">
+            <div class="form-group">
+                <label>Bairro</label> <input class="form-control span1" type="text" name="bairro" value="{{repres.endereco.bairro}}" />
+            </div>
+        </div>
+
+        <div class="col-md-3 col-md-offset-1">
+            <div class="form-group">
+
+                <label>Estado</label>
+                <select class="form-control" required id="estadosList" name="estado">
+
+
+
+                    <option value="{{ repres.endereco.estado.id }}">{{ repres.endereco.estado.nome }}</option>
+
+
+
+                </select>
+
+            </div>
+        </div>
+
+        <div class="col-md-3 col-md-offset-1">
+            <div class="form-group">
+
+                <label>Cidade</label>
+
+                <select class="form-control" required id="cidadesList" name="cidade">
+                    <option value="{{ repres.endereco.cidade.id }}">{{repres.endereco.cidade.nome}}</option>
+
+                </select>
+
+            </div>
+        </div>
+    </div> <!--  TERMINA UMA LINHA DO FORM  -->
+
+    <div class="row">
+        <div class="col-md-3 ">
+            <div class="form-group">
+                <label>Email</label> <input class="form-control span1" type="email" name="email" value="{{repres.contato.email}}" />
+            </div>
+        </div>
+
+        <div class="col-md-3 col-md-offset-1">
+            <div class="form-group">
+                <label>Telefone 1</label>  <input class="form-control" type="text" name="telefone1" value="{{repres.contato.telefone1}}" />
+            </div>
+        </div>
+
+        <div class="col-md-3 col-md-offset-1">
+            <div class="form-group">
+                <label>Telefone 2</label>  <input class="form-control" type="text" name="telefone2" value="{{repres.contato.telefon2}}" />
+            </div>
+        </div>
+    </div> <!--  TERMINA UMA LINHA DO FORM  -->
+
+
+    <div class="row">
+        <div class="col-md-3 ">
+            <div class="form-group">
+                <label>Celular 1</label> <input class="form-control span1" type="text" name="celular1" value="{{repres.contato.celular1}}" />
+            </div>
+        </div>
+
+        <div class="col-md-3 col-md-offset-1">
+            <div class="form-group">
+                <label>Celular 2</label>  <input class="form-control" type="text" name="celular2" value="{{repres.contato.celular2}}" />
+            </div>
+        </div>
+
+        <div class="col-md-3 col-md-offset-1">
+            <div class="form-group">
+                <label>Status</label>  <input class="form-control" type="text" name="status" value="{{repres.status}}" />
+            </div>
+        </div>
+    </div> <!--  TERMINA UMA LINHA DO FORM  -->
+
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label>Site</label> <input class="form-control" type="text" name="site" value="{{repres.contato.site}}" />
+            </div>
+        </div>
+
+    </div> <!--  TERMINA UMA LINHA DO FORM  -->
+
+
+    <button type="button" id="btnDetalhesRepresEditar" class="btn btn-primary" name="BtnEdit">Editar</button>
+    <button id="btnDetalhesRepresDelete" class="btn btn-primary" type="submit" name="BtnDelete">Deletar</button>
+    <button id="btnDetalhesRepresSalvar" class="btn btn-primary" type="submit" name="BtnSave_edit">Salvar</button> <!--  TERMINA UMA LINHA DO FORM  -->
+
+</form>
+  <button class="btn btn-primary">Voltar</button>
+{% endblock %}
+
+

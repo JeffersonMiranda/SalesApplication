@@ -1,0 +1,84 @@
+﻿{% extends '../../base.html' %}
+
+{% block css %} 
+{{ block.super }}
+{% endblock %}
+
+{% block scripts %}
+{{ block.super }}
+{% load staticfiles %}
+<script src="{% static 'app/scripts/functions/getRepresLista.js' %}"></script>
+<script src="{% static 'app/scripts/functions/produtos/Detalhes.js' %}"></script>
+{% endblock %}
+
+
+
+{% block titulo_page %} Consulta de produtos {% endblock %}
+
+{% block content %}
+    
+
+
+ <form id="form_consultar_produtos" class="form-horizontal" method="post" action="{% url 'produtos_manutencao_detalhes' produto.id %}">
+    {% csrf_token %}
+    <div class="row">
+        <div class="col-md-6 ">
+            <div class="form-group">
+                <label>Nome</label> <input class="form-control span1" type="text" required name="nome" value="{{ produto.nome }}" />
+            </div>
+        </div>
+    </div> <!--  TERMINA UMA LINHA DO FORM  -->
+
+
+    <div class="row">
+
+        <div class="col-md-3">
+            <div class="form-group">
+                <label>Preço 1</label>  <input class="form-control" placeholder="Formato 0.00" type="text" pattern="(0\.((0[1-9]{1})|([1-9]{1}([0-9]{1})?)))|(([1-9]+[0-9]*)(\.([0-9]{1,2}))?)" name="preco1" value="{{ produto.preco1 }}" />
+            </div>
+        </div>
+
+        <div class="col-md-3 col-md-offset-1">
+            <div class="form-group">
+                <label>Preço 2</label>  <input class="form-control" placeholder="Formato 0.00" type="text" pattern="(0\.((0[1-9]{1})|([1-9]{1}([0-9]{1})?)))|(([1-9]+[0-9]*)(\.([0-9]{1,2}))?)" name="preco2" value="{{ produto.preco2 }}" />
+            </div>
+        </div>
+
+        <div class="col-md-3 col-md-offset-1">
+            <div class="form-group">
+                <label>Preço 3</label>  <input class="form-control" placeholder="Formato 0.00" type="text" pattern="(0\.((0[1-9]{1})|([1-9]{1}([0-9]{1})?)))|(([1-9]+[0-9]*)(\.([0-9]{1,2}))?)" name="preco3" value="{{ produto.preco3 }}" />
+            </div>
+        </div>
+
+    </div><!--  TERMINA UMA LINHA DO FORM  -->
+
+    <div class="row">
+
+        <div class="col-md-3 ">
+            <div class="form-group">
+                <label>Status</label>  <input class="form-control" type="text" name="status" value="{{ produto.status }}" />
+            </div>
+        </div>
+
+        <div class="col-md-6 col-md-offset-1">
+            <div class="form-group">
+                <label>Representacao</label>
+                <select class="form-control" required id="represLista" name="representacao">
+
+                    <option value="{{ produto.representacao_id }}">{{ produto.representacao.nome_fantasia }}</option>
+
+                </select>
+            </div>
+        </div>
+
+    </div> <!--  TERMINA UMA LINHA DO FORM  -->
+
+    <button type="button" id="btnDetalhesProdutosEditar" class="btn btn-primary" name="BtnEdit">Editar</button>
+    <button id="btnDetalhesProdutosDelete" class="btn btn-primary" type="submit" name="BtnDelete">Deletar</button>
+    <button id="btnDetalhesProdutosSalvar" class="btn btn-primary" type="submit" name="BtnSave_edit">Salvar</button> <!--  TERMINA UMA LINHA DO FORM  -->
+
+</form>
+  <button class="btn btn-primary">Voltar</button>
+{% endblock %}
+
+

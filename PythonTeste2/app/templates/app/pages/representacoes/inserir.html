@@ -1,0 +1,177 @@
+﻿{% extends '../../base.html' %}
+
+{% block css %} 
+{{ block.super }}
+{% endblock %}
+
+{% block scripts %}
+{{ block.super }}
+{% load staticfiles %}
+<script src="{% static 'app/scripts/functions/getCidadesLista.js' %}"></script>
+<script src="{% static 'app/scripts/functions/getEstadosListaInserir.js' %}"></script>
+{% endblock %}
+
+
+{% block titulo_page %} Inserir representações {% endblock %}
+
+{% block content %}
+
+
+ <form class="form-horizontal" method="post" action="{% url 'inserir_repres' %}">
+      {% csrf_token %}
+    <div class="row">
+        <div class="col-md-3 ">
+            <div class="form-group">
+                <label>CNPJ</label> <input class="form-control span1" type="text" required name="cnpj" value="" />
+            </div>
+        </div>
+
+        <div class="col-md-8 col-md-offset-1">
+            <div class="form-group">
+                <label>Nome Fantasia</label>  <input class="form-control" required type="text" name="nome_fantasia" value="" />
+            </div>
+        </div>
+    </div> <!--  TERMINA UMA LINHA DO FORM  -->
+
+
+    <div class="row">
+
+        <div class="col-md-6">
+            <div class="form-group">
+                <label>Razão Social</label>  <input class="form-control" type="text" required name="razao_social" value="" />
+            </div>
+        </div>
+
+        <div class="col-md-5 col-md-offset-1">
+            <div class="form-group">
+                <label>Inscrição Estadual</label> <input class="form-control span1" type="text" name="inscri_estadual" value="" />
+            </div>
+        </div>
+    </div><!--  TERMINA UMA LINHA DO FORM  -->
+
+      <div class="row">
+
+    <div class="col-md-8">
+        <div class="form-group">
+            <label>Rua</label>  <input class="form-control" type="text" name="rua" value="" />
+        </div>
+    </div>
+     </div> <!--  TERMINA UMA LINHA DO FORM  -->
+
+
+    <div class="row">
+        <div class="col-md-3 ">
+            <div class="form-group">
+                <label>Número</label> <input class="form-control span1" type="text" name="numero" value="" />
+            </div>
+        </div>
+
+        <div class="col-md-3 col-md-offset-1">
+            <div class="form-group">
+                <label>Referência</label>  <input class="form-control" type="text" name="referencia" value="" />
+            </div>
+        </div>
+
+        <div class="col-md-3 col-md-offset-1">
+            <div class="form-group">
+                <label>CEP</label>  <input class="form-control" type="text" name="cep" />
+            </div>
+        </div>
+    </div> <!--  TERMINA UMA LINHA DO FORM  -->
+
+
+    <div class="row">
+        <div class="col-md-3 ">
+            <div class="form-group">
+                <label>Bairro</label> <input class="form-control span1" type="text" name="bairro" value="" />
+            </div>
+        </div>
+
+        <div class="col-md-3 col-md-offset-1">
+            <div class="form-group">
+
+                <label>Estado</label>
+                   <select class="form-control" required id="estadosList" name="estado">
+                                 
+
+                {% for e in estadosData %}    
+
+                 <option value="{{ e.id }}">{{ e.nome }}</option>
+
+                {% endfor %}
+                 <option value="" disabled selected hidden> Escolha um estado </option>
+                  </select>
+               
+            </div>
+        </div>
+
+        <div class="col-md-3 col-md-offset-1">
+            <div class="form-group">
+               
+                <label>Cidade</label>  
+
+                 <select class="form-control" required id="cidadesList" name="cidade">
+                        
+
+                  </select>
+
+            </div>
+        </div>
+    </div> <!--  TERMINA UMA LINHA DO FORM  -->
+
+     <div class="row">
+        <div class="col-md-3 ">
+            <div class="form-group">
+                <label>Email</label> <input class="form-control span1" type="email" name="email" value="" />
+            </div>
+        </div>
+
+        <div class="col-md-3 col-md-offset-1">
+            <div class="form-group">
+                <label>Telefone 1</label>  <input class="form-control" type="text" name="telefone1" value="" />
+            </div>
+        </div>
+
+        <div class="col-md-3 col-md-offset-1">
+            <div class="form-group">
+                <label>Telefone 2</label>  <input class="form-control" type="text" name="telefone2" value="" />
+            </div>
+        </div>
+    </div> <!--  TERMINA UMA LINHA DO FORM  -->
+
+
+     <div class="row">
+        <div class="col-md-3 ">
+            <div class="form-group">
+                <label>Celular 1</label> <input class="form-control span1" type="text" name="celular1" value="" />
+            </div>
+        </div>
+
+        <div class="col-md-3 col-md-offset-1">
+            <div class="form-group">
+                <label>Celular 2</label>  <input class="form-control" type="text" name="celular2" value="" />
+            </div>
+        </div>
+
+        <div class="col-md-3 col-md-offset-1">
+            <div class="form-group">
+                <label>Status</label>  <input class="form-control" type="text" name="status" value="" />
+            </div>
+        </div>
+    </div> <!--  TERMINA UMA LINHA DO FORM  -->
+
+     <div class="row">
+         <div class="col-md-6">
+            <div class="form-group">
+                <label>Site</label> <input class="form-control" type="text" name="site" value="" />
+            </div>
+         </div>
+
+     </div> <!--  TERMINA UMA LINHA DO FORM  -->
+
+
+     <button class="btn btn-primary" type="submit" >Cadastrar</button>  <!--  TERMINA UMA LINHA DO FORM  -->
+
+</form>
+  <button class="btn btn-primary" >Voltar</button>
+{% endblock %}

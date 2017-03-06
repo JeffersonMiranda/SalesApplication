@@ -1,0 +1,82 @@
+﻿{% extends '../../base.html' %}
+
+{% block css %} 
+{{ block.super }}
+{% endblock %}
+
+{% block scripts %}
+{{ block.super }}
+{% endblock %}
+
+
+{% block titulo_page %} Manutenção {% endblock %}
+
+{% block content %}
+
+
+
+
+<div class="row">
+
+   <a href="{% url 'clientes_manutencao_inserir' %}"> <button class="btn btn-primary">Novo</button> </a>
+
+</div>
+
+
+
+
+<div class="row">
+
+    <form action="{% url 'clientes_manutencao' %}" method="post" class="form-inline">
+        {% csrf_token %}
+        <div class="form-group">
+            <input type="text" size="70" class="form-control" placeholder="Buscar por nome fantasia" name="campoNomeBuscar" />
+            <input type="submit" name="btnBuscar" class="btn btn-primary" value="Buscar" />
+        </div>
+    </form>
+
+</div>
+
+
+<div class="row">
+      <!-- SE TEM CLIENTE NA BUSCA e GERAR TABELA DE CLIENTES CADASTRADOS -->
+    {% if clientesLista|length > 0 %} 
+
+    <table class="table" style="font-size:14px">
+        <tr>
+            <th>Nome Fantasia</th>
+            <th>CNPJ</th>
+            <th>Razão Social</th>
+            <th>Inscrição Municipal</th>
+            <th>Inscrição Estadual</th>
+            <th>Status</th>
+            <th>Detalhes</th>
+        </tr>
+
+
+        {% for c  in clientesLista  %}
+
+        <tr>
+            <td> {{ c.nome_fantasia }} </td>
+            <td> {{ c.cnpj  }}</td>
+            <td> {{ c.razao_social  }}</td>
+            <td> {{ c.inscri_municipal  }}</td>
+            <td> {{ c.inscri_estadual  }}</td>
+            <td> {{ c.status  }}</td>
+            <td> <a href="{% url 'clientes_manutencao_consultar' c.id %}" class="btn btn-primary btn-sm">Detalhes</a></td>
+        </tr>
+
+        {% endfor %}
+
+    </table>
+
+        {%  else %}
+
+        <h1> Não encontrado </h1>
+
+       {% endif %}
+
+
+    {% endblock %}
+
+</div>

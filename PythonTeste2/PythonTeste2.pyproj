@@ -1,0 +1,272 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <Name>PythonTeste2</Name>
+    <RootNamespace>PythonTeste2</RootNamespace>
+  </PropertyGroup>
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>db3aa4c5-df59-46f4-af85-1698b6c8bf55</ProjectGuid>
+    <ProjectHome>.</ProjectHome>
+    <ProjectTypeGuids>{5F0BE9CA-D677-4A4D-8806-6076C0FAAD37};{349c5851-65df-11da-9384-00065b846f21};{888888a0-9f3d-457c-b088-3a5042f75d52}</ProjectTypeGuids>
+    <StartupFile>manage.py</StartupFile>
+    <SearchPath>
+    </SearchPath>
+    <WorkingDirectory>.</WorkingDirectory>
+    <LaunchProvider>Django launcher</LaunchProvider>
+    <OutputPath>.</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugSymbols>true</DebugSymbols>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugSymbols>true</DebugSymbols>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="app\forms.py" />
+    <Compile Include="app\models.py" />
+    <Compile Include="app\models\Cidade.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="app\models\Comissao.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="app\models\Contato.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="app\models\Endereco.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="app\models\Estado.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="app\models\ItemPedido.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="app\models\Pedido.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="app\models\Prazo.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="app\models\Produto.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="app\models\Representacao.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="app\models\TipoPedido.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="app\models\VendedorDoCliente.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="app\tests.py" />
+    <Compile Include="app\views.py" />
+    <Compile Include="app\__init__.py" />
+    <Compile Include="app\migrations\__init__.py" />
+    <Compile Include="manage.py" />
+    <Compile Include="app\models\Cliente.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="app\models\__init__.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="PythonTeste2\settings.py" />
+    <Compile Include="PythonTeste2\urls.py" />
+    <Compile Include="PythonTeste2\wsgi.py" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="app\" />
+    <Folder Include="app\migrations\" />
+    <Folder Include="app\models\" />
+    <Folder Include="app\static\" />
+    <Folder Include="app\static\app\" />
+    <Folder Include="app\static\app\content\" />
+    <Folder Include="app\static\app\content\dataTables\" />
+    <Folder Include="app\static\app\content\pedidos\" />
+    <Folder Include="app\static\app\fonts\" />
+    <Folder Include="app\static\app\images\" />
+    <Folder Include="app\static\app\scripts\" />
+    <Folder Include="app\static\app\scripts\dataTables\" />
+    <Folder Include="app\static\app\scripts\flot\" />
+    <Folder Include="app\static\app\scripts\functions\" />
+    <Folder Include="app\static\app\scripts\functions\prazos\" />
+    <Folder Include="app\static\app\scripts\functions\pedidos\" />
+    <Folder Include="app\static\app\scripts\functions\produtos\" />
+    <Folder Include="app\static\app\scripts\functions\representacoes\" />
+    <Folder Include="app\templates\" />
+    <Folder Include="app\templates\app\" />
+    <Folder Include="app\templates\app\pages\" />
+    <Folder Include="app\templates\app\pages\clientes\" />
+    <Folder Include="app\templates\app\pages\prazos\" />
+    <Folder Include="app\templates\app\pages\pedidos\" />
+    <Folder Include="app\templates\app\pages\produtos\" />
+    <Folder Include="app\templates\app\pages\representacoes\" />
+    <Folder Include="PythonTeste2\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="app\static\app\content\animate.css" />
+    <Content Include="app\static\app\content\animate.min.css" />
+    <Content Include="app\static\app\content\bootstrap-dropdownhover.css" />
+    <Content Include="app\static\app\content\bootstrap-dropdownhover.min.css" />
+    <Content Include="app\static\app\content\bootstrap-social.css" />
+    <Content Include="app\static\app\content\bootstrap-submenu.min.css" />
+    <Content Include="app\static\app\content\bootstrap-theme.min.css" />
+    <Content Include="app\static\app\content\dataTables\dataTables.bootstrap.css" />
+    <Content Include="app\static\app\content\dataTables\dataTables.responsive.css" />
+    <Content Include="app\static\app\content\font-awesome.min.css" />
+    <Content Include="app\static\app\content\footer.css" />
+    <Content Include="app\static\app\content\header.css" />
+    <Content Include="app\static\app\content\jquery.dropdown.min.css" />
+    <Content Include="app\static\app\content\metisMenu.min.css" />
+    <Content Include="app\static\app\content\morris.css" />
+    <Content Include="app\static\app\content\pedidos\style.css" />
+    <Content Include="app\static\app\content\startmin.css" />
+    <Content Include="app\static\app\content\timeline.css" />
+    <Content Include="app\static\app\fonts\fontawesome-webfont.eot" />
+    <Content Include="app\static\app\fonts\fontawesome-webfont.svg" />
+    <Content Include="app\static\app\fonts\fontawesome-webfont.ttf" />
+    <Content Include="app\static\app\fonts\fontawesome-webfont.woff" />
+    <Content Include="app\static\app\fonts\fontawesome-webfont.woff2" />
+    <Content Include="app\static\app\fonts\FontAwesome.otf" />
+    <Content Include="app\static\app\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="app\static\app\images\delete.png" />
+    <Content Include="app\static\app\scripts\bootstrap-dropdownhover.js" />
+    <Content Include="app\static\app\scripts\bootstrap-dropdownhover.min.js" />
+    <Content Include="app\static\app\scripts\bootstrap-submenu.min.js" />
+    <Content Include="app\static\app\scripts\dataTables\dataTables.bootstrap.min.js" />
+    <Content Include="app\static\app\scripts\dataTables\jquery.dataTables.min.js" />
+    <Content Include="app\static\app\scripts\flot-data.js" />
+    <Content Include="app\static\app\scripts\flot\excanvas.min.js" />
+    <Content Include="app\static\app\scripts\flot\jquery.colorhelpers.js" />
+    <Content Include="app\static\app\scripts\flot\jquery.flot.canvas.js" />
+    <Content Include="app\static\app\scripts\flot\jquery.flot.categories.js" />
+    <Content Include="app\static\app\scripts\flot\jquery.flot.crosshair.js" />
+    <Content Include="app\static\app\scripts\flot\jquery.flot.errorbars.js" />
+    <Content Include="app\static\app\scripts\flot\jquery.flot.fillbetween.js" />
+    <Content Include="app\static\app\scripts\flot\jquery.flot.image.js" />
+    <Content Include="app\static\app\scripts\flot\jquery.flot.js" />
+    <Content Include="app\static\app\scripts\flot\jquery.flot.navigate.js" />
+    <Content Include="app\static\app\scripts\flot\jquery.flot.pie.js" />
+    <Content Include="app\static\app\scripts\flot\jquery.flot.resize.js" />
+    <Content Include="app\static\app\scripts\flot\jquery.flot.selection.js" />
+    <Content Include="app\static\app\scripts\flot\jquery.flot.stack.js" />
+    <Content Include="app\static\app\scripts\flot\jquery.flot.symbol.js" />
+    <Content Include="app\static\app\scripts\flot\jquery.flot.threshold.js" />
+    <Content Include="app\static\app\scripts\flot\jquery.flot.time.js" />
+    <Content Include="app\static\app\scripts\flot\jquery.flot.tooltip.min.js" />
+    <Content Include="app\static\app\scripts\functions\ClientesDetalhes.js" />
+    <Content Include="app\static\app\scripts\functions\getCidadesLista.js" />
+    <Content Include="app\static\app\scripts\functions\getEstadosLista.js" />
+    <Content Include="app\static\app\scripts\functions\getEstadosListaInserir.js" />
+    <Content Include="app\static\app\scripts\functions\getRepresLista.js" />
+    <Content Include="app\static\app\scripts\functions\pedidos\Detalhes.js" />
+    <Content Include="app\static\app\scripts\functions\pedidos\Detalhes2.js" />
+    <Content Include="app\static\app\scripts\functions\pedidos\getProductsByRepresentacao.js" />
+    <Content Include="app\static\app\scripts\functions\prazos\Detalhes.js" />
+    <Content Include="app\static\app\scripts\functions\produtos\Detalhes.js" />
+    <Content Include="app\static\app\scripts\functions\representacoes\Detalhes.js" />
+    <Content Include="app\static\app\scripts\jquery-3.1.1.js" />
+    <Content Include="app\static\app\scripts\jquery.dropdown.min.js" />
+    <Content Include="app\static\app\scripts\jquery.min.js" />
+    <Content Include="app\static\app\scripts\metisMenu.min.js" />
+    <Content Include="app\static\app\scripts\morris-data.js" />
+    <Content Include="app\static\app\scripts\morris.min.js" />
+    <Content Include="app\static\app\scripts\raphael.min.js" />
+    <Content Include="app\static\app\scripts\startmin.js" />
+    <Content Include="app\templates\app\.gitignore" />
+    <Content Include="app\templates\app\base.html" />
+    <Content Include="app\templates\app\pages\clientes\detalhes.html" />
+    <Content Include="app\templates\app\pages\clientes\inserir.html" />
+    <Content Include="app\templates\app\composer.json" />
+    <Content Include="app\templates\app\LICENSE" />
+    <Content Include="app\templates\app\index.html" />
+    <Content Include="app\templates\app\pages\clientes\manutencao.html" />
+    <Content Include="app\templates\app\pages\pedidos\detalhes.html" />
+    <Content Include="app\templates\app\pages\pedidos\inserir.html" />
+    <Content Include="app\templates\app\pages\pedidos\manutencao.html" />
+    <Content Include="app\templates\app\pages\prazos\manutencao.html" />
+    <Content Include="app\templates\app\pages\produtos\detalhes.html" />
+    <Content Include="app\templates\app\pages\produtos\inserir.html" />
+    <Content Include="app\templates\app\pages\produtos\manutencao.html" />
+    <Content Include="app\templates\app\pages\representacoes\detalhes.html" />
+    <Content Include="app\templates\app\pages\representacoes\inserir.html" />
+    <Content Include="app\templates\app\pages\representacoes\manutencao.html" />
+    <Content Include="app\templates\app\README.md" />
+    <Content Include="app\templates\app\base22.html" />
+    <Content Include="requirements.txt" />
+    <Content Include="db.sqlite3" />
+    <Content Include="app\static\app\content\bootstrap.css" />
+    <Content Include="app\static\app\content\bootstrap.min.css" />
+    <Content Include="app\static\app\content\site.css" />
+    <Content Include="app\static\app\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="app\static\app\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="app\static\app\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="app\static\app\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="app\static\app\scripts\bootstrap.js" />
+    <Content Include="app\static\app\scripts\bootstrap.min.js" />
+    <Content Include="app\static\app\scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="app\static\app\scripts\jquery-1.10.2.js" />
+    <Content Include="app\static\app\scripts\jquery-1.10.2.min.js" />
+    <Content Include="app\static\app\scripts\jquery-1.10.2.min.map" />
+    <Content Include="app\static\app\scripts\jquery.validate-vsdoc.js" />
+    <Content Include="app\static\app\scripts\jquery.validate.js" />
+    <Content Include="app\static\app\scripts\jquery.validate.min.js" />
+    <Content Include="app\static\app\scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="app\static\app\scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="app\static\app\scripts\modernizr-2.6.2.js" />
+    <Content Include="app\static\app\scripts\respond.js" />
+    <Content Include="app\static\app\scripts\respond.min.js" />
+    <Content Include="app\static\app\scripts\_references.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="readme.mht">
+      <SubType>WebBrowser</SubType>
+    </None>
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.Django.targets" />
+  <!-- Specify pre- and post-build commands in the BeforeBuild and 
+       AfterBuild targets below. -->
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <AutoAssignPort>True</AutoAssignPort>
+          <UseCustomServer>True</UseCustomServer>
+          <CustomServerUrl>http://localhost</CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}" User="">
+        <WebProjectProperties>
+          <StartPageUrl>
+          </StartPageUrl>
+          <StartAction>CurrentPage</StartAction>
+          <AspNetDebugging>True</AspNetDebugging>
+          <SilverlightDebugging>False</SilverlightDebugging>
+          <NativeDebugging>False</NativeDebugging>
+          <SQLDebugging>False</SQLDebugging>
+          <ExternalProgram>
+          </ExternalProgram>
+          <StartExternalURL>
+          </StartExternalURL>
+          <StartCmdLineArguments>
+          </StartCmdLineArguments>
+          <StartWorkingDirectory>
+          </StartWorkingDirectory>
+          <EnableENC>False</EnableENC>
+          <AlwaysStartWebServerOnDebug>False</AlwaysStartWebServerOnDebug>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

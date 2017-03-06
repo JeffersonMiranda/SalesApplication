@@ -1,0 +1,150 @@
+﻿{% extends '../../base.html' %}
+
+{% block css %}
+{{ block.super }}
+{% load staticfiles %}
+<link href="{% static 'app/content/pedidos/style.css' %}" rel="stylesheet" />
+{% endblock %}
+
+{% block scripts %}
+{{ block.super }}
+{% load staticfiles %}
+<script src="{% static 'app/scripts/functions/pedidos/getProductsByRepresentacao.js' %}"></script>
+<script src="{% static 'app/scripts/functions/pedidos/Detalhes.js' %}"></script>
+{% endblock %}
+
+
+{% block titulo_page %} Lançamento de pedidos {% endblock %}
+
+{% block content %}
+
+<div class="row">
+
+    <div class="form-group">
+
+        <div class="col-md-6">
+            <label> Representação </label>
+
+
+            <select id="represLista" class="form-control">
+                <option value="" disabled selected hidden>Escolha uma representação...</option>
+
+                {% if represLista|length > 0 %}
+                {% for r  in represLista  %}
+                <option value="{{ r.id }}"> {{ r.nome_fantasia }} </option>
+
+                {% endfor %}
+
+                {% endif %}
+
+            </select>
+
+        </div>
+
+        <div class="col-md-6">
+            <label> Prazo </label>
+
+            <select id="prazoLista" class="form-control">
+                <option value="" disabled selected hidden>Escolha um prazo...</option>
+
+                {% if prazoLista|length > 0 %}
+                {% for p  in prazoLista  %}
+                <option value="{{ p.id }}"> {{ p.descricao }} </option>
+
+                {% endfor %}
+
+                {% endif %}
+
+            </select>
+
+        </div>
+
+
+    </div>
+
+</div>
+
+<div class="row">
+
+    <div class="col-md-6">
+
+        <label> Cliente </label>
+
+        <select id="clientesLista" class="form-control">
+            <option value="" disabled selected hidden>Escolha um cliente...</option>
+
+            {% if clientesLista|length > 0 %}
+            {% for p  in clientesLista  %}
+            <option value="{{ p.id }}"> {{ p.nome_fantasia }} </option>
+
+            {% endfor %}
+
+            {% endif %}
+
+        </select>
+
+        
+        <label> Tipo de pedido </label>
+
+        <select id="clientesLista" class="form-control">
+            <option value="" disabled selected hidden>Escolha um cliente...</option>
+
+            {% if clientesLista|length > 0 %}
+            {% for p  in clientesLista  %}
+            <option value="{{ p.id }}"> {{ p.nome_fantasia }} </option>
+
+            {% endfor %}
+
+            {% endif %}
+
+        </select>
+
+
+    </div>
+
+
+
+
+    <div class="col-md-6">
+
+        <label> Observação </label>
+
+        <textarea class="form-control" rows="4" cols="20"></textarea>
+
+    </div>
+
+
+</div>
+
+<div class="row">
+    <div class="col-md-6">
+
+
+    </div>
+</div>
+
+
+<form class="form-horizontal" method="post" action="{% url 'inserir_pedidos' %}">
+    {% csrf_token %}
+
+    <div class="row">
+        <div class="col-md-12">
+            <table class="table table-condensed" id="tablePedido"></table>
+
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-8">
+            <button id="lancarPedido" class="btn btn-primary" type="button">Lançar</button>  <!--  TERMINA UMA LINHA DO FORM  -->
+        </div>
+
+        <div class="col-md-4">
+
+            <div id="valorTotalPedido">
+                <h4> Total </h4> <span></span>
+            </div>
+        </div>
+    </div>
+</form>
+<button class="btn btn-primary">Voltar</button>
+{% endblock %}

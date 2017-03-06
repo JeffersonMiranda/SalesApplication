@@ -1,0 +1,85 @@
+﻿{% extends '../../base.html' %}
+
+{% block css %}
+{{ block.super }}
+{% endblock %}
+
+{% block scripts %}
+{{ block.super }}
+{% load staticfiles %}
+<script src="{% static 'app/scripts/functions/prazos/Detalhes.js' %}"></script>
+{% endblock %}
+
+
+
+{% block titulo_page %} Controle de prazos {% endblock %}
+
+{% block content %}
+
+
+<div class="row">
+    <form id="inserirPrazoForm" class="form-inline" method="post">
+        {% csrf_token %}
+        <div class="form-group">
+            <label> Inserir novo prazo </label>
+            <input class="form-control" id="novoPrazo" size="60" required type="text" name="prazoCampo" />    
+            <button type="submit" id="btnInserirPrazo" class="btn btn-primary">Registrar</button>
+        </div>
+
+    </form>
+ 
+
+</div>
+
+
+<div class="row">
+
+    <h4> Consulta de prazos </h4>
+
+    <form action="{% url 'prazos_manutencao' %}" method="post" class="form-inline">
+        {% csrf_token %}
+        <div class="form-group">
+         
+            <label>Selecione um prazo para consultar ou editar</label>
+
+            <select id="prazoListaSelect" class="form-control">
+                  <option value="" disabled selected hidden>Escolha um prazo...</option>
+                {%  if prazosLista|length > 0 %}
+                
+                  {% for p  in prazosLista  %}
+                  <option value="{{ p.id }}"> {{ p.descricao }} </option>
+
+                  {% endfor %}
+
+                {% endif %}
+
+            </select>
+
+        </div>
+    </form>
+
+</div>
+
+
+<div id="prazoDetalhes" class="row" style="display:none"> <!--SOMENTE EXIBIR QUANDO SELECIONAR UM PRAZO-->
+ 
+    <div class="col-md-6 " >
+        <form method="post" class="form-horizontal">
+            {% csrf_token %}
+            <div class="form-group">
+                <label>ID</label>  <input type="text" id="prazoIdCampo" class="form-control" disabled value="{{ prazo.id }}" />
+            </div>
+            <div class="form-group">
+                <label>Descrição</label>  <input type="text" id="descricaoPrazoCampo" class="form-control" disabled value="{{ prazo.descricao }}" />
+            </div>
+            <div class="form-group">
+            <button type="button" id="btnEditarPrazo" class="btn btn-primary">Editar</button>
+            <button type="button" id="btnExcluirPrazo" class="btn btn-primary">Excluir</button>
+            <button type="button" id="btnSalvarPrazo" class="btn btn-primary">Salvar</button>
+            </div>
+
+        </form> 
+        </div>
+</div>
+
+{% endblock %}

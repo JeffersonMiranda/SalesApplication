@@ -1,0 +1,83 @@
+﻿{% extends '../../base.html' %}
+
+{% block css %} 
+{{ block.super }}
+{% endblock %}
+
+{% block scripts %}
+{{ block.super }}
+{% load staticfiles %}
+{% endblock %}
+
+
+{% block titulo_page %} Inserir produtos {% endblock %}
+
+{% block content %}
+
+
+ <form class="form-horizontal" method="post" action="{% url 'inserir_produtos' %}">
+    {% csrf_token %}
+    <div class="row">
+        <div class="col-md-6 ">
+            <div class="form-group">
+                <label>Nome</label> <input class="form-control span1" type="text" required name="nome" value="" />
+            </div>
+        </div>
+    </div> <!--  TERMINA UMA LINHA DO FORM  -->
+
+
+    <div class="row">
+
+        <div class="col-md-3">
+            <div class="form-group">
+                <label>Preço 1</label>  <input class="form-control" placeholder="Formato 0.00" type="text" pattern="(0\.((0[1-9]{1})|([1-9]{1}([0-9]{1})?)))|(([1-9]+[0-9]*)(\.([0-9]{1,2}))?)" name="preco1" value="" />
+            </div>
+        </div>
+
+        <div class="col-md-3 col-md-offset-1">
+            <div class="form-group">
+                <label>Preço 2</label>  <input class="form-control" placeholder="Formato 0.00" type="text" pattern="(0\.((0[1-9]{1})|([1-9]{1}([0-9]{1})?)))|(([1-9]+[0-9]*)(\.([0-9]{1,2}))?)" name="preco2" value="" />
+            </div>
+        </div>
+
+        <div class="col-md-3 col-md-offset-1">
+            <div class="form-group">
+                <label>Preço 3</label>  <input class="form-control"  placeholder="Formato 0.00" type="text" pattern="(0\.((0[1-9]{1})|([1-9]{1}([0-9]{1})?)))|(([1-9]+[0-9]*)(\.([0-9]{1,2}))?)" name="preco3" value="" />
+            </div>
+        </div>
+
+    </div><!--  TERMINA UMA LINHA DO FORM  -->
+
+    <div class="row">
+
+        <div class="col-md-3 ">
+            <div class="form-group">
+                <label>Status</label>  <input class="form-control" type="text" name="status" value="" />
+            </div>
+        </div>
+
+        <div class="col-md-6 col-md-offset-1">
+            <div class="form-group">
+                <label>Representacao</label>
+                   <select class="form-control" required id="represLista" name="representacao">
+                                 
+
+                {% for e in represData %}    
+
+                 <option value="{{ e.id }}">{{ e.nome_fantasia }}</option>
+
+                {% endfor %}
+                 <option value="" disabled selected hidden> Escolha uma representacao </option>
+                  </select>
+               
+            </div>
+        </div>
+
+    </div> <!--  TERMINA UMA LINHA DO FORM  -->
+
+
+    <button class="btn btn-primary" type="submit">Cadastrar</button>  <!--  TERMINA UMA LINHA DO FORM  -->
+
+</form>
+  <button class="btn btn-primary" >Voltar</button>
+{% endblock %}
