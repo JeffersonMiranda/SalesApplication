@@ -77,9 +77,9 @@
     <Compile Include="app\models\__init__.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="PythonTeste2\settings.py" />
-    <Compile Include="PythonTeste2\urls.py" />
-    <Compile Include="PythonTeste2\wsgi.py" />
+    <Compile Include="SalesApplication\settings.py" />
+    <Compile Include="SalesApplication\urls.py" />
+    <Compile Include="SalesApplication\wsgi.py" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="app\" />
@@ -108,7 +108,7 @@
     <Folder Include="app\templates\app\pages\pedidos\" />
     <Folder Include="app\templates\app\pages\produtos\" />
     <Folder Include="app\templates\app\pages\representacoes\" />
-    <Folder Include="PythonTeste2\" />
+    <Folder Include="SalesApplication\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="app\static\app\content\animate.css" />
